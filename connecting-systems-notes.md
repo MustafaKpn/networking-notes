@@ -22,4 +22,19 @@ Then, the DNS responds to the request with the IP address of the server hosting 
     * Transmission Control Protocol (TCP) is a connection-oriented protocol for communications that helps in the exchange of messages between different devices over a network.
     * SSL is standard technology for securing an internet connection by encrypting data sent between a website and a browser. SSL uses certificates that contain a public key that authenticates the website’s identity and allows for encrypted data transfer through asymmetric, or public-key cryptography.
 
+5. Server processing
+The server receives the request, processes it (which may involve accessing a database or performing other backend operations), and prepares an HTTP response.
+
+6. Receiving the response
+The browser receives the response from the server. This includes:
+* Status line includes the status code (i.e. 404) and a phrase line (i.e. Not Found).
+* Headers (information about the response).
+* Body that contains the actual data.
+
+7. Rendering the page
+After receiving the response, the browser renders the HTML content:
+    * HTML parsing: the browser parses the HTML to build the Document Object Model (DOM) tree, which represents the structure of the webpage.
+    * CSS and JavaScript parsing (if applicable).
+    * Layout and Painting: Finally, the browser calculates the layout of the page (where elements are positioned) and paints them to the screen.
+
 
