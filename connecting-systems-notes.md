@@ -37,8 +37,8 @@ The browser receives the response from the server. This includes:
 7. #### Rendering the page
 
 After receiving the response, the browser renders the HTML content:
-    * HTML parsing: the browser parses the HTML to build the Document Object Model (DOM) tree, which represents the structure of the webpage.
-    * CSS and JavaScript parsing (if applicable).
-    * Layout and Painting: Finally, the browser calculates the layout of the page (where elements are positioned) and paints them to the screen.
+* HTML parsing: the browser parses the HTML to build the Document Object Model (DOM) tree, which represents the structure of the webpage.
+* CSS and JavaScript parsing (if applicable).
+* Layout and Painting: Finally, the browser calculates the layout of the page (where elements are positioned) and paints them to the screen.
 
 
