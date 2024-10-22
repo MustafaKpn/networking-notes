@@ -42,3 +42,33 @@ After receiving the response, the browser renders the HTML content:
     * Layout and Painting: Finally, the browser calculates the layout of the page (where elements are positioned) and paints them to the screen.
 
 
+#### OSI model
+NOTE: I am trying to understand the OSI model through some youtube videos and I am keeping notes here.
+
+**Layer1-Physical**
+
+* Devices that only operate on this layer can only transmit data in binary using a physical meduim such as: copper, light, waves.
+* Layer 1 does not provide access control and does not offer uniquely identified devices.
+* If two devices are communicating on a layer 1 level only, collisions or noise would be transmitted too since there is no added layer of control yet.
+* Layer 1 transmits raw data
+
+**Layer2-Data Link**
+
+* It is built on layer 1 with the addition of extra functionality.
+* Layer 2 introduces the concept of frames. Frames are a format for sending information over the layer 2 network.
+* Layer 2 also introduces mac address for every connected devices. Example of a mac address: 23:22:fb:b9:5b:75
+    * MAC addresses are uniquely attached to hardwares (not software). This is assigned by the manufacturer.
+    * The mac address on a network card should be globally unique
+* Frames used by layer 2 consist of:
+    1. Preamble and start frame delimiter. This is to allow devices to know the start of a frame.
+    2. The destination and the source MAC addresses. 
+    3. Ether type: to specify which layer 3 protocol is putting its data inside the frame.
+    4. The previous elements are called the MAC Header
+    5. The MAC Header is followed by the payload where data is encapsulated.
+    6. Finally is the Frame Check Sequence to identify an errors
+
+If two devices are connected and want to transmit data on a layer 1 level only, this will cause collision because both devices might be sending data at the same time. This is solved using the 2nd layer which provides a controlled access to the media devices.
+
+Let's say we have device A and device B that are connected with a physical meduim. A wants to send data to B. Using layer 2 functionality, it creates a frame first. Then it checks if there is a carrier in the physical meduim. If there is a signal coming, it waits unitl it passes. If there is not, layer 1 takes the frame data, converts it to physical standard and transmits it to device B. B receives the passed frame and checks the MAC address of the destination found in the MAC header in the frame. If the MAC address corresponds to device B, the frame is taken in.
+
+ 
