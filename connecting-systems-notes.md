@@ -59,6 +59,7 @@ NOTE: I am trying to understand the OSI model through some youtube videos and I 
 * Layer 2 also introduces mac address for every connected devices. Example of a mac address: 23:22:fb:b9:5b:75
     * MAC addresses are uniquely attached to hardwares (not software). This is assigned by the manufacturer.
     * The mac address on a network card should be globally unique
+* Ethernet is a L2 protocol used generally for local networks.
 * Frames used by layer 2 consist of:
     1. Preamble and start frame delimiter. This is to allow devices to know the start of a frame.
     2. The destination and the source MAC addresses. 
@@ -70,5 +71,18 @@ NOTE: I am trying to understand the OSI model through some youtube videos and I 
 If two devices are connected and want to transmit data on a layer 1 level only, this will cause collision because both devices might be sending data at the same time. This is solved using the 2nd layer which provides a controlled access to the media devices.
 
 Let's say we have device A and device B that are connected with a physical meduim. A wants to send data to B. Using layer 2 functionality, it creates a frame first. Then it checks if there is a carrier in the physical meduim. If there is a signal coming, it waits unitl it passes. If there is not, layer 1 takes the frame data, converts it to physical standard and transmits it to device B. B receives the passed frame and checks the MAC address of the destination found in the MAC header in the frame. If the MAC address corresponds to device B, the frame is taken in.
+
+**Layer3-Network**
+* Let's say we have LAN1 and LAN2. Both are isolated local area networks. Using only layer2, only those networks joined by a direct point to point link using the same layer2 protocol could communicate. Here comes layer3 to connnect devices accross local area networks.
+* IP Packets are moved step by step from source to destination via intermediate networks, encapsulated in different frames along the way.
+* Routers move packets of data across different networks. They encapsulate a packet inside an Ethernet frame for each local journey for that particular network. Then when it needs to be moved to another network, the old frame is removed and a new one is added around the same packet and is moved to the next local network.
+* So if a video is being sent from a company in the US to my computer, the video would need to be moved between different local networks until it gets here. For each network it moves to, it needs to be encapsulated in a particular frame that corresponds to that network. When it is moved, the old frame is removed a new one is assigned.
+* IP is needed to allow us to connect to different remote networks crossing intermediate networks.
+* IP packets have source and destination addresses, but unlike frames, these addresses are not local.
+* IP packets can have different versions such as v4 and v6.
+* Packets contain many data types. One of the is Protocol field. This is defined by layer 4, and it stores the protocol being used such as TCP and UDP. For TCP, the protocol's field value would be 6. Whereas for UDP the value is 17.
+* Another data field, is Time To Live (for v4) or Hop Limit (for v6). This data field defines a limit for how many different points or hops the packets are moved between. This is to avoid looping. When the packets reach their maximumn Time To Live number without arriving to their detination, they get discarded.
+* IP addresses have have the format: nnn.nnn.nnn.nnn where nnn is a number in the range from 0 to 255. The first two parts of an IP address represent the network part. The last two part represent the host on that network.
+* If the 'Network' part of two IP addresses match, it means they are on the same IP network. If not, they are on different networks.
 
  
